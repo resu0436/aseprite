@@ -19,16 +19,11 @@ jobs:
         submodules: 'recursive'
     - name: ccache
       uses: hendrikmuhs/ccache-action@v1
-      if: runner.os == 'Linux'
-      with:
-        key: ${{ matrix.os }}-${{ matrix.enable_ui }}
-    - uses: seanmiddleditch/gha-setup-ninja@master
-    - uses: ilammy/msvc-dev-cmd@v1
       if: runner.os == 'Windows'
-    - name: Install Dependencies
-      shell: bash
+    - name:Install Dependencies
+      shell:bash
       run: |
-     + if [[ "${{ runner.os }}" == "Linux" ]] ; then
+        if [[ "${{ runner.os }}" == "Linux" ]] ; then
              sudo apt-get update -qq
           sudo apt-get install -y \
             libx11-dev libxcursor-dev libxi-dev
