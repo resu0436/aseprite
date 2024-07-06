@@ -23,7 +23,7 @@ jobs:
      with:
         key: ${{ matrix.os }}-${{ matrix.enable_ui }}
   - uses: seanmiddleditch/gha-setup-ninja@master
-  - uses:ilammy/msvc-dev-cmd@v1
+  - uses: ilammy/msvc-dev-cmd@v1
     if: runner.os == 'Windows'
   - name: Install Dependencies
      shell: bash
